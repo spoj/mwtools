@@ -1,0 +1,42 @@
+name:                mwtools
+version:             0.2.1.0
+build-type:          Simple
+cabal-version:       >=1.8
+executable checkdigit
+  hs-source-dirs:      src
+  main-is:             checkdigit.hs
+  build-depends:       base
+  ghc-options:         -dynamic
+executable joinPara
+  hs-source-dirs:      src
+  main-is:             joinPara.hs
+  build-depends:       base
+  ghc-options:         -dynamic
+executable kver
+  hs-source-dirs:      src
+  main-is:             kver.hs
+  build-depends:       base, tagsoup, curl
+  ghc-options:         -dynamic
+executable nub
+  hs-source-dirs:      src
+  main-is:             nub.hs
+  build-depends:       base
+  ghc-options:         -dynamic
+executable topwords
+  hs-source-dirs:      src
+  main-is:             topwords.hs
+  build-depends:       base, text, unordered-containers, containers, hashable
+  other-modules:       TopStrings
+  ghc-options:         -dynamic
+executable topchars
+  hs-source-dirs:      src
+  main-is:             topchars.hs
+  build-depends:       base, text, unordered-containers, containers, hashable
+  ghc-options:         -dynamic
+  other-modules:       TopStrings
+executable usc
+  hs-source-dirs:      src
+  main-is:             usc.hs
+  build-depends:       base, text, unordered-containers, containers, hashable
+  ghc-options:         -dynamic
+  other-modules:       TopStrings
