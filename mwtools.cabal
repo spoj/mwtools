@@ -23,20 +23,22 @@ executable nub
   build-depends:       base
   ghc-options:         -dynamic
 executable topwords
-  hs-source-dirs:      src
   main-is:             topwords.hs
+  hs-source-dirs:      src
   build-depends:       base, text, unordered-containers, containers, hashable
-  other-modules:       TopStrings
   ghc-options:         -dynamic
 executable topchars
   hs-source-dirs:      src
   main-is:             topchars.hs
   build-depends:       base, text, unordered-containers, containers, hashable
   ghc-options:         -dynamic
-  other-modules:       TopStrings
 executable usc
   hs-source-dirs:      src
   main-is:             usc.hs
-  build-depends:       base, text, unordered-containers, containers, hashable
   ghc-options:         -dynamic
-  other-modules:       TopStrings
+  build-depends:       base, text, unordered-containers, containers, hashable
+executable dice
+  hs-source-dirs:      src
+  main-is:             dice.hs
+  ghc-options:         -dynamic
+  build-depends:       base, bytestring
