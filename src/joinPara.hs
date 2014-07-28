@@ -5,7 +5,7 @@ import Data.List(groupBy)
 import Data.Function (on)
 
 trim :: String -> String
-trim = trimTail . trimHead 
+trim = trimTail . trimHead
 
 trimHead,trimTail :: String -> String
 trimHead = dropWhile isSpace
