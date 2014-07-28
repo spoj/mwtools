@@ -42,3 +42,8 @@ executable dice
   main-is:             dice.hs
   ghc-options:         -dynamic
   build-depends:       base, bytestring
+executable taxi
+  hs-source-dirs:      src
+  main-is:             taxi.hs
+  ghc-options:         -dynamic
+  build-depends:       base, bytestring
