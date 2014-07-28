@@ -24,10 +24,12 @@ ttt a b c = (d * 16 + f, e*16 + g)
         f = fromIntegral f'
         g = fromIntegral g'
 
+ttts :: [Word8] -> [Int]
 ttts (a:b:c:xs) = (d:f:ttts xs)
   where (d,f) = ttt a b c
 ttts _ = []
 
+twoklist :: [[Char]]
 twoklist = [
     "a",
     "b",
