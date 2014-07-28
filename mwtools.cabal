@@ -47,3 +47,8 @@ executable taxi
   main-is:             taxi.hs
   ghc-options:         -dynamic
   build-depends:       base, bytestring
+executable sbl
+  hs-source-dirs:      src
+  main-is:             sbl.hs
+  ghc-options:         -dynamic
+  build-depends:       base, bytestring
