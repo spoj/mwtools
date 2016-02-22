@@ -6,44 +6,36 @@ executable checkdigit
   hs-source-dirs:      src
   main-is:             checkdigit.hs
   build-depends:       base
-  ghc-options:         -dynamic
 executable joinPara
   hs-source-dirs:      src
   main-is:             joinPara.hs
   build-depends:       base
-  ghc-options:         -dynamic
 executable kver
   hs-source-dirs:      src
   main-is:             kver.hs
   build-depends:       base, tagsoup, curl
-  ghc-options:         -dynamic
 executable nub
   hs-source-dirs:      src
   main-is:             nub.hs
   build-depends:       base
-  ghc-options:         -dynamic
 executable topwords
   main-is:             topwords.hs
   hs-source-dirs:      src
   build-depends:       base, text, unordered-containers, containers, hashable
   other-modules:       TopStrings
-  ghc-options:         -dynamic
 executable topchars
   hs-source-dirs:      src
   main-is:             topchars.hs
   build-depends:       base, text, unordered-containers, containers, hashable
   other-modules:       TopStrings
-  ghc-options:         -dynamic
 executable usc
   hs-source-dirs:      src
   main-is:             usc.hs
-  ghc-options:         -dynamic
   other-modules:       TopStrings
   build-depends:       base, text, unordered-containers, containers, hashable
 executable dice
   hs-source-dirs:      src
   main-is:             dice.hs
-  ghc-options:         -dynamic
   build-depends:       base, bytestring
 executable taxi
   hs-source-dirs:      src
@@ -53,5 +45,4 @@ executable taxi
 executable sbl
   hs-source-dirs:      src
   main-is:             sbl.hs
-  ghc-options:         -dynamic
   build-depends:       base, bytestring
