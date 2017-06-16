@@ -1,35 +1,14 @@
 module Main where
-import System.IO
-import Data.Maybe (fromJust)
-import Data.Bits
-import Data.Word
 import qualified Data.ByteString.Lazy as B
 
 main :: IO ()
-main =   B.readFile "/dev/random"
-     >>= mapM_ (putStrLn . (twoklist !!). (`shiftR` 1)) . ttts . take 42 . B.unpack
+main = B.readFile "/dev/urandom" >>= sequence_ . fmap (putStrLn . (twoklist!!)) . map (`mod`2048) . to16Bits . B.take 50
 
-upper4,lower4 :: Word8
-lower4 = bit 0 .|. bit 1 .|. bit 2 .|. bit 3
-upper4 = complement lower4
-splitWord :: Word8 -> (Word8, Word8)
-splitWord w = (lower4 .&. w, shiftR w 4)
+to16Bits :: B.ByteString -> [Int]
+to16Bits a | B.null (B.drop 2 a) = []
+           | otherwise = fromIntegral (B.head a) * 256 + fromIntegral (B.index a 2) : to16Bits (B.drop 2 a)
 
-
-ttt :: Word8 -> Word8 -> Word8 -> (Int,Int)
-ttt a b c = (d * 16 + f, e*16 + g)
-  where d = fromIntegral a
-        e = fromIntegral b
-        (f',g') = splitWord c
-        f = fromIntegral f'
-        g = fromIntegral g'
-
-ttts :: [Word8] -> [Int]
-ttts (a:b:c:xs) = (d:f:ttts xs)
-  where (d,f) = ttt a b c
-ttts _ = []
-
-twoklist :: [[Char]]
+twoklist :: [String]
 twoklist = [
     "a",
     "b",
