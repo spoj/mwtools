@@ -2,47 +2,60 @@ name:                mwtools
 version:             0.2.2.0
 build-type:          Simple
 cabal-version:       >=1.8
+
+library
+  hs-source-dirs: src
+  build-depends: base, text, unordered-containers, containers, hashable, parallel
+  exposed-modules: TopStrings, SubsetSum
+
 executable checkdigit
-  hs-source-dirs:      src
-  main-is:             checkdigit.hs
-  build-depends:       base
+  hs-source-dirs: app
+  main-is: checkdigit.hs
+  build-depends: base
 executable joinPara
-  hs-source-dirs:      src
-  main-is:             joinPara.hs
-  build-depends:       base
+  hs-source-dirs: app
+  main-is: joinPara.hs
+  build-depends: base
 executable kver
-  hs-source-dirs:      src
-  main-is:             kver.hs
-  build-depends:       base, tagsoup, curl
+  hs-source-dirs: app
+  main-is: kver.hs
+  build-depends: base, tagsoup, curl
 executable nub
-  hs-source-dirs:      src
-  main-is:             nub.hs
-  build-depends:       base
+  hs-source-dirs: app
+  main-is: nub.hs
+  build-depends: base
 executable topwords
-  main-is:             topwords.hs
-  hs-source-dirs:      src
-  build-depends:       base, text, unordered-containers, containers, hashable
-  other-modules:       TopStrings
+  main-is: topwords.hs
+  hs-source-dirs: app
+  build-depends: base, mwtools, text
 executable topchars
-  hs-source-dirs:      src
-  main-is:             topchars.hs
-  build-depends:       base, text, unordered-containers, containers, hashable
-  other-modules:       TopStrings
+  hs-source-dirs: app
+  main-is: topchars.hs
+  build-depends: base, mwtools, text
 executable usc
-  hs-source-dirs:      src
-  main-is:             usc.hs
-  other-modules:       TopStrings
-  build-depends:       base, text, unordered-containers, containers, hashable
+  hs-source-dirs: app
+  main-is: usc.hs
+  build-depends: base, mwtools, text
 executable dice
-  hs-source-dirs:      src
-  main-is:             dice.hs
-  build-depends:       base, bytestring
+  hs-source-dirs: app
+  main-is: dice.hs
+  build-depends: base, bytestring
 executable taxi
-  hs-source-dirs:      src
-  main-is:             taxi.hs
-  ghc-options:         -dynamic
-  build-depends:       base, bytestring
+  hs-source-dirs: app
+  main-is: taxi.hs
+  build-depends: base, bytestring
 executable sbl
-  hs-source-dirs:      src
-  main-is:             sbl.hs
-  build-depends:       base, bytestring
+  hs-source-dirs: app
+  main-is: sbl.hs
+  build-depends: base, bytestring
+executable sssum
+  hs-source-dirs: app
+  main-is: sssum.hs
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends: base, mwtools
+
+test-suite Test
+  hs-source-dirs: test
+  main-is: tests.hs
+  Type: exitcode-stdio-1.0
+  build-depends: base, mwtools, QuickCheck, test-framework-quickcheck2
