@@ -3,7 +3,13 @@ import SubsetSum
 import Text.Printf
 
 main :: IO ()
-main = getContents >>= printoutput . subsetsum' . map read . takeWhile (/=".") . lines . filter (`elem`"0123456789.\n")
+main = getContents
+  >>= printoutput
+    . subsetsum'
+    . map read
+    . takeWhile (/=".")
+    . lines
+    . filter (`elem`"0123456789-.\n")
 
 printoutput Nothing = putStrLn "Nothing"
 printoutput (Just l) = do

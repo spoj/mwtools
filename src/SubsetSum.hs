@@ -17,3 +17,4 @@ subsetsum e n xxs@(x:xs)
   where
     l = fmap (x:) (subsetsum e (n-x) xs)
     r = subsetsum e n xs
+
